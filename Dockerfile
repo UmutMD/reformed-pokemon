@@ -8,7 +8,6 @@ WORKDIR /reformed
 #RUN apt install python3 -y
 COPY requirements.txt .
 COPY ./src ./src
-
 RUN set -xe \
     && apt-get update -y\
     && apt-get install -y python3-pip
@@ -17,15 +16,15 @@ RUN pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/ten
 RUN pip install -r requirements.txt
 RUN pip install scikit-learn
 RUN pip install -U tensorflow
-
+WORKDIR /reformed/src
 #RUN apt-get install python3-pip
 #RUN pip install --upgrade pip
 # Get the 
 
 
 #RUN pip install -r requirements.txt
+#docker run -it -w /src reformed  
 # docker run --rm -it reformed bash
-ENTRYPOINT [ "executable" ] ["cd"," src"]
-CMD ["python3", "/main.py"]
+CMD ["python3", "main.py"]
 
 #docker rmi -f $(docker images -aq)
