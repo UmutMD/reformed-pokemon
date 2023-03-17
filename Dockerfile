@@ -1,16 +1,31 @@
-FROM python:3
-RUN pip install --upgrade pip
-RUN pip install jupyterlab
-RUN pip install -U "jupyter-server<2.0.0"
-# Set the working directory to /app
-WORKDIR /uuh
+FROM ubuntu:latest
+#FROM python: 30
 
-# Get the 
+
+# Set the working directory to /app
+WORKDIR /reformed
+#RUN apt update
+#RUN apt install python3 -y
 COPY requirements.txt .
 COPY ./src ./src
 
+RUN set -xe \
+    && apt-get update -y\
+    && apt-get install -y python3-pip
+RUN pip install --upgrade pip
+RUN pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.0.0-py3-none-any.whl
 RUN pip install -r requirements.txt
+RUN pip install scikit-learn
+RUN pip install -U tensorflow
 
-# Configuring access to Jupyter
-RUN mkdir /notebooks
-RUN jupyter notebook --no-browser --ip 0.0.0.0 --port 8888 /notebooks --allow-root
+#RUN apt-get install python3-pip
+#RUN pip install --upgrade pip
+# Get the 
+
+
+#RUN pip install -r requirements.txt
+# docker run --rm -it reformed bash
+ENTRYPOINT [ "executable" ] ["cd"," src"]
+CMD ["python3", "/main.py"]
+
+#docker rmi -f $(docker images -aq)
