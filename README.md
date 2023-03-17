@@ -23,6 +23,7 @@ Start your Docker image with the commands below to see what's inside the contain
 ```python
 docker run --rm -it reformed bash
 ```
+This code line will start a terminal in the container environment for you. 
 
 ## Procedure
 
