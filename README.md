@@ -33,7 +33,7 @@ After loading the required libraries, the images and csv file are loaded into ou
 
 ## To Do Next
 
-Run this image on AWS ECR server.
+Run this image on AWS ECR server. Running the image only from remote server.
 
 ## Changes from 1.0 to 2.0
 
