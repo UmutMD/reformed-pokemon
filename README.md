@@ -9,6 +9,7 @@ I converted my hobby project into a Docker file using the knowledge I have learn
 After downloading all of the files here, run the command below and wait for a while to see the outcomes.
 
 ```python
+docker build -t reformed . 
 docker run reformed
 ```
 
